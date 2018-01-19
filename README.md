@@ -10,7 +10,7 @@ Finding lane lines is an important task for self-driving car. When we drive, we 
 
 Python and OpenCV were used to detect lane lines in this project. I pre-processed the images by grayscalling and Gaussian blurring, then used Canny Edge Detection and Hough Transform line detection to detect the lane lines.
 
-[![Finding Lane Lines](https://img.youtube.com/vi/loATnqXWG24/0.jpg)](https://www.youtube.com/watch?v=loATnqXWG24)
+![Finding Lane Lines](/pipeline/solidWhiteRight.gif)
 
 ---
 
@@ -36,17 +36,22 @@ conda install -c conda-forge moviepy ffmpeg
 ### 1. Lane Finding Pipeline
 
 1. **Grayscale**: It's not required to distinguish between yellow and white lane lines in this project. We are only interested in the brightness information in the images.
-![Grayscale](/gray_images/solidWhiteCurve.jpg)
+<img src="/pipeline/gray.jpg" height="270">
+
 2. **Gaussian Blur**: Suppress noise and spurious gradients by averaging before applying edge detection.
-![Gaussian Blur](/blur_images/solidWhiteCurve.jpg)
+<img src="/pipeline/blur.jpg" height="270">
+
 3. **Canny Edge Detection**: Detect edges in the image by computing the gradient.
-![Canny](/canny_images/solidWhiteCurve.jpg)
+<img src="/pipeline/canny.jpg" height="270">
+
 4. **Region of Interest**: Assuming the front facing camera that took the image is mounted in a fixed position on the car, such that the lane lines will always appear in the same general region of the image. This step define this region and remove things outside of it.
-![Region of Interest](/roi_images/solidWhiteCurve.jpg)
+<img src="/pipeline/roi.jpg" height="270">
+
 5. **Hough Transform**:  Apply Hough Transform to find lane lines within the region of interest.
-![Region of Interest](/hough_images/solidWhiteCurve.jpg)
+<img src="/pipeline/hough.jpg" height="270">
+
 6. **Extrapolate Line Segments**: Last step generates multiple line segments. In order to draw a single line on the left and right lanes, line segments were first grouped into left or right lines, determined by their slopes. Then, for each group, numpy.polyfit was used to fit a line among the points.
-![Result](/test_images_output/solidWhiteCurve.jpg)
+<img src="/test_images_output/solidWhiteCurve.jpg" height="270">
 
 
 ### 2. Identify potential shortcomings with your current pipeline
