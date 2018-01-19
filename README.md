@@ -54,7 +54,7 @@ conda install -c conda-forge moviepy ffmpeg
 <img src="/test_images_output/solidWhiteCurve.jpg" height="270">
 
 
-### 2. Identify potential shortcomings with your current pipeline
+### 2. Identify Potential Shortcomings
 
 
 One potential shortcoming would be when the color of lane lines are not white/yellow, or when there's zebra crossing ahead.
@@ -62,7 +62,7 @@ One potential shortcoming would be when the color of lane lines are not white/ye
 Another shortcoming could be when the car is going up on a steep hill. Because we are using the same region of interest for any images, it will be inaccurate in this case.
 
 
-### 3. Suggest possible improvements to your pipeline
+### 3. Possible Improvements
 
 A possible improvement would be figuring out a way to automatically tune the parameters for Hough Transform and Canny Edge Detection.
 
